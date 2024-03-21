@@ -1,0 +1,30 @@
+\begin{circuitikz}[scale = 1, every node/.style={scale=1}]
+\draw
+    (0.5,0)
+    -- (0.5,6)
+    -- (2,6)
+    -- (2,5)
+    to[battery2, l_=5\si{\volt}, invert] (2,4)
+    -- (2,2)
+    to[pR, l_=1\si{\kilo\ohm}, name=P, wiper pos = 0.8] (2,0.5)
+    -- (2,0)
+    -- (0.5,0)
+;
+\draw % dalla base della freccetta
+    (P.wiper)
+    -| (4.5,1.5)
+;
+\draw % opposto al potenziometro
+    (2,5.1)
+    to[short, *-] (4.5,5.1) 
+    -- (4.5, 4.5)
+;
+\draw % parte interna
+    (4.5,1.5)
+    -- (6,1.5)
+    to[smeter, t=V, l=$V_\text{MM}$] (6,4.5)
+    -- (3,4.5)
+    to[oscope, l=$V_\text{osc}$] (3,1.5)
+    -- (4.5,1.5)
+;
+\end{circuitikz}

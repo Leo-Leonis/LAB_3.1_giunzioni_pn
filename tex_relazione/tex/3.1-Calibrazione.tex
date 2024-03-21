@@ -1,0 +1,9 @@
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image/c1.pdf}
+    \caption{Retta di calibrazione dell'oscilloscopio. Sulle ascisse sono riportate le misure di tensione effettuate con il multimetro, mentre sulle ordinate quelle con l'oscilloscopio.}
+    \label{fig:cal}
+\end{figure}
+Con i dati della \autoref{tab:cal}, presente in \autoref{ch:data}, abbiamo eseguito un fit lineare pesato secondo l'\autoref{eq:cal} come possibile vedere in \autoref{fig:cal}. Le incertezze sulle singole misure sono state valutate tramite le formule riportate in \autoref{ch:err}.
+
+A questo punto, avendo ottenuto come parametri $a = (-2 \pm 7)$ \si{\milli\volt} e $b = 1.02 \pm 0.02$, è facile notare come le misure effettuate con l'oscilloscopio e col multimetro siano compatibili tra loro (essendo la pendenza compatibile con 1 e l’intercetta compatibile con lo 0). Dunque, non sarà necessario effettuare alcun tipo di correzione sulle misure effettuate con l’oscilloscopio.

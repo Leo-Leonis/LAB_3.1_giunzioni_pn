@@ -1,0 +1,32 @@
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=0.78\textwidth]{image/cSi.pdf}
+    \caption{Caratteristica I-V del diodo al silicio. Sulle ascisse sono riportati i valori di tensione, sulle ordinate quelli di corrente in scala semilogaritmica. Il fit è stato effettuato su tutti i dati raccolti, fino a 700 \si{\milli\volt}.}
+    \label{fig:Si}
+\end{figure}
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width=0.78\textwidth]{image/cGe.pdf}
+    \caption{Caratteristica I-V del diodo al germanio.  Sulle ascisse sono riportati i valori di tensione, sulle ordinate quelli di corrente in scala semilogaritmica. Il fit è stato effettuato sui primi punti fino a 160 \si{\milli\volt}.}
+    \label{fig:Ge}
+\end{figure}
+Con i dati riportati in \autoref{tab:Si} e in \autoref{tab:Ge}, presenti in \autoref{ch:data}, è possibile graficare gli andamenti I-V del diodo in silicio e del diodo al germanio. Anche in questo caso, per il calcolo delle incertezze rimandiamo anche in questo caso all’\autoref{ch:err}.
+
+Dalle caratteristiche I-V del diodo al silicio e del diodo al germanio, graficate in \autoref{fig:Si} e in \autoref{fig:Ge}, è stato possibile estrapolare i parametri $I_0$ e  $\eta V_T$ effettuando un fit sui dati secondo l'\autoref{eq:shokley}.
+
+In \autoref{tab:fit_res} riportiamo i risultati numerici dei parametri trovati tramite delle caratteristiche I-V del diodo in silicio e del diodo in germanio.
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{||c||c||c||}
+    \hline \hline
+      & \textsc{silicio} & \textsc{germanio}\\
+    \hline \hline
+    $I_0$ & $(1.6 \pm 1.3)$ \si{\nano\ampere} & $(1.8 \pm 1.4)$ \si{\micro\ampere}\\
+    $\eta V_T$ & $(47 \pm 4)$ \si{\milli\volt} & $(37 \pm 9)$ \si{\milli\volt} \\
+    \hline\hline
+    \end{tabular}
+    \caption{Parametri del fit relativi ai diodi al silicio e al germanio}
+    \label{tab:fit_res}
+\end{table}

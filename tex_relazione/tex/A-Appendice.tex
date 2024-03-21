@@ -1,0 +1,83 @@
+\section{Dati raccolti} \label{ch:data}
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{||c|c||c|c||}
+        \hline \hline
+        \multicolumn{4}{||c||}{\textsc{calibrazione dell'oscilloscopio}} \\
+        \hline \hline
+        $V_\text{MM}$ & f.s. & $V_\text{osc}$ & f.s.\\ \hline
+        \csvreader[
+            head to column names,
+            separator=tab,
+            % table head = $V_\text{MM}$ & f.s. & $V_\text{osc}$ & f.s.\\\hline
+             late after line=\\
+            % table foot = \hline \hline
+            % table head = \toprule
+        ]{data/cal.csv}{}
+        {\VMM  $\text{ }\pm$ \ErrMM & \fsMM & \VOsc  $\text{ }\pm$ \ErrOscA & \fsOsc}\hline\hline
+    \end{tabular}
+    \caption{Dati relativi alla calibrazione dell'oscilloscopio. I dati sono espressi in \si{\milli\volt}.}
+    \label{tab:cal}
+\end{table}
+\begin{table}[htb!]
+    \parbox{.49\linewidth}{
+    \centering
+    \begin{tabular}{||c|c||c|c||}
+        \hline \hline
+        \multicolumn{4}{||c||}{\textsc{I-V caratteristica del silicio}} \\
+        \hline \hline
+        $I$ (\si{\milli\ampere})& f.s. & $V$ (\si{\milli\volt})& f.s.\\ \hline
+        \csvreader[
+            head to column names,
+            separator=tab,
+            % table head = $V_\text{MM}$ & f.s. & $V_\text{osc}$ & f.s.\\\hline
+             late after line=\\
+            % table foot = \hline \hline
+            % table head = \toprule
+        ]{data/Si.csv}{}
+        {\Cur  $\text{ }\pm$ \CurErr & \CurFs & \Volt  $\text{ }\pm$ \VoltErrA & \VoltFs}\hline\hline
+    \end{tabular}
+    \caption{Dati relativi alla caratteristica I-V\\del diodio al silicio.}
+    \label{tab:Si}
+    }
+    \hfill
+    \parbox{.49\linewidth}{
+    \centering
+    \begin{tabular}{||c|c||c|c||}
+        \hline \hline
+        \multicolumn{4}{||c||}{\textsc{I-V caratteristica del germanio}} \\
+        \hline \hline
+        $I$ (\si{\milli\ampere})& f.s. & $V$ (\si{\milli\volt})& f.s.\\ \hline
+        \csvreader[
+            head to column names,
+            separator=tab,
+            % table head = $V_\text{MM}$ & f.s. & $V_\text{osc}$ & f.s.\\\hline
+             late after line=\\
+            % table foot = \hline \hline
+            % table head = \toprule
+        ]{data/Ge.csv}{}
+        {\Cur  $\text{ }\pm$ \CurErr & \CurFs & \Volt  $\text{ }\pm$ \VoltErrA & \VoltFs}\hline\hline
+    \end{tabular}
+    \caption{Dati relativi alla caratteristica I-V\\ del diodio al silicio.}
+    \label{tab:Ge}
+    }
+\end{table}
+
+\section{Valutazione delle incertezze} \label{ch:err}
+\subsection{Oscilloscopio}
+Per calcolare l’incertezza $\sigma$ associata ad ogni singola misura di tensione effettuata con l’oscilloscopio, abbiamo utilizzato la formula: 
+\begin{equation*}
+    \sigma = \sqrt{{\sigma_L}^2 + {\sigma_Z}^2 + {\sigma_C}^2 }
+\end{equation*}
+dove $\sigma_C$ rappresenta la precisione dichiarata dal costruttore, che in questo caso è il 3\% della misura, mentre $\sigma_L$ e $\sigma_Z$  rappresentano rispettivamente l’errore sulla lettura e l’errore sullo zero, entrambi da determinare secondo la seguente relazione:
+\begin{equation*}
+    \sigma_L = \sigma_Z = \dfrac{V_\text{f.s.}}{5} \cdot N_\text{t.a.}
+\end{equation*}
+in cui $V_\text{f.s.}$ rappresenta il fondoscala utilizzato per la singola misura e $N_\text{t.a.}$ indica il numero di tacchette apprezzabili.
+
+\subsection{Multimetro}
+Per quanto riguarda l'incertezza $\sigma$ da associare ad ogni misura effettuata con il multimetro digitale, sono state sfruttate le specifiche riportate in \autoref{tab:multimetro}; dunque ad ogni misura $x$ bisogna associare un'incertezza $\sigma_x$ secondo l'espressione
+\begin{equation*}
+    \sigma_x = x \cdot \text{prec.} + \text{risoluzione} \cdot \text{digits} 
+\end{equation*}
+con $\text{prec.}$, $\text{risoluzione}$ e $\text{digits}$ da estrapolare dalle colonne in \autoref{tab:multimetro}.

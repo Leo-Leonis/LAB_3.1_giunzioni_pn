@@ -1,0 +1,69 @@
+Lo scopo della prova è misurare la caratteristica I-V di due diodi in silicio e in germanio col fine di verificare la validità dell'\autoref{eq:shokley}, mediante la stima dei parametri $I_0$ e $\eta V_T$.
+
+\subsection{Materiali e strumenti}
+
+Riportiamo adesso un elenco dei materiali e degli strumenti utilizzati durante l’esperienza (tra parentesi il modello utilizzato):
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Generatore di tensione (\verb|TTi EB2025T|)
+        \item Potenziometro da 1\si{\kilo\ohm}
+        \item Diodo al silicio (\verb|1N914A|/\verb|1N4446|/\verb|1N4148|)
+        \item Diodo al germanio (\verb|AAZ15|/\verb|OA47|)
+        \item Breadboard
+        \item Oscilloscopio analogico (\verb|GW GOS-652|)
+        \item Multimetro digitale (\verb|ISO-TECH IDM 105|)
+        \item [\vspace{\fill}]
+    \end{itemize}
+\end{multicols}
+\noindent Le specifiche del multimetro sono riportate nella \autoref{tab:multimetro}. La precisione dell'oscilloscopio è del 3\% come dichiarato dal costruttore.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{||c|c|c|c||}
+        \hline\hline
+        \multicolumn{4}{||c||}{\textsc{corrente (DC)}}\\
+        \hline\hline
+        fondo scala & risoluzione & prec. & digits \\\hline
+        4, 40, 400 \si{\milli\ampere} & 1, 10, 100 \si{\micro\ampere} & 0.4\% & 2\\
+        10 \si{\ampere} & 10 \si{\milli\ampere} & 0.8\% & 4\\
+        \hline\hline
+        \multicolumn{4}{||c||}{\textsc{tensione (DC)}}\\
+        \hline\hline
+        fondo scala & risoluzione & prec. & digits \\\hline
+        400 \si{\milli\volt} & 0.1 \si{\milli\volt} & 0.75\% & 2\\
+        4, 40, 400, 1000 \si{\volt} & 1, 10, 100, 1000 \si{\milli\volt} & 0.5\% & 2\\
+        \hline\hline
+    \end{tabular}
+    \caption{Specifiche tecniche del multimetro \emph{\texttt{ISO-TECH IDM 105}} relative alla corrente e alla tensione in corrente continua. La colonna \emph{prec.} indica la precisione e \emph{digits} indica il numero da aggiungere all'ultima cifra significativa della misura.}
+    \label{tab:multimetro}
+\end{table}
+
+
+\subsection{Svolgimento dell'esperienza}
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+    \centering
+        \input{tex/circ_cal}
+        \caption{Schema del circuito utilizzato per la calibrazione dell'oscilloscopio.}
+        \label{fig:circ_cal}
+    \end{subfigure}
+    \hspace{1cm}
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \input{tex/circuito}
+        \caption{Schema del circuito realizzato per la misura della caratteristica I-V dei diodi.}
+        \label{fig:circ_diodi}
+    \end{subfigure}
+    \caption{I due circuiti realizzati nello svolgimento dell'esperienza. $V_\text{osc}$ indica l'oscilloscopio; $I$ e $V_\text{MM}$ indicano il multimetro.}
+    \label{fig:circuiti}
+\end{figure}
+
+La calibrazione è stata effettuata per verificare la compatibilità degli strumenti di misura. In \autoref{fig:circ_cal} è rappresentato il circuito utilizzato per effettuare la calibrazione dell’oscilloscopio tramite il multimetro digitale. Il circuito è costituito da un generatore che eroga una tensione di 5\si{\volt} collegato ai pin fissi del potenziometro. Sono presenti, inoltre, l’oscilloscopio analogico e il multimetro digitale come rappresentato in \autoref{fig:circuiti}.
+Per effettuare la calibrazione, dopo aver impostato lo zero dell’oscilloscopio, è stato necessario variare il potenziometro al fine di ottenere il valore di tensione desiderato con l’oscilloscopio, cambiando fondo scala a seconda della misura, per poi poterlo confrontare con quello misurato dal multimetro. In seguito, abbiamo effettuato un fit lineare del tipo:
+\begin{equation} \label{eq:cal}
+    V_\text{osc} = a + b \cdot V_\text{MM}
+\end{equation}
+Per poter considerare compatibili le misure, il risultato del fit deve essere compatibile entro gli errori con una retta inclinata di $45^\circ$ e con intercetta nulla.
+
+In \autoref{fig:circ_diodi} è rappresentato il circuito utilizzato per studiare la caratteristica I-V di un diodo, prima al silicio e poi al germanio. Esso è costituito dal generatore di tensione costante di 5\si{\volt} collegato ai pin fissi del potenziometro, mentre il pin variabile di quest’ultimo è collegato in serie al multimetro e al diodo. È presente, inoltre, come possibile osservare in figura, l’oscilloscopio per misurare il valore di tensione ai capi del diodo $V_D$, ottenuti variando il potenziometro. Per misurare la corrente I è stato invece utilizzato il multimetro. Infine, effettuando un fit sui dati ottenuti dei diodi al silicio e al germanio abbiamo stimato i parametri $I_0$ e $\eta V_T$ secondo l'\autoref{eq:shokley}. 

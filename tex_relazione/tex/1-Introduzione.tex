@@ -1,0 +1,10 @@
+Il diodo è un componente elettronico passivo a due terminali (bipolo) che ha la capacità di far scorrere la corrente in un'unica direzione. In realtà, la corrente scorre anche nel verso opposto, ma è quasi totalmente nulla.
+
+Il diodo è composto due parti: l'anodo e il catodo. Applicando una tensione positiva all’anodo il diodo consente il passaggio di corrente $I$. In questo caso il diodo si dice polarizzato direttamente. Invertendo la tensione il diodo riduce al minimo il passaggio della corrente e abbiamo una corrente $I_0$ detta corrente di saturazione inversa. In questo caso il diodo è polarizzato inversamente.\\
+La relazione tra tensione e corrente si dice caratteristica I-V del diodo. Per correnti piccole, la caratteristica è espressa in forma approssimata dall'Equazione di Shockley:
+\begin{equation} \label{eq:shokley}
+    I(V_D) = \displaystyle I_0\Biggl(e^{\dfrac{V_D}{\eta V_T}} - 1 \Biggl)
+\end{equation}
+dove $V_D$ è la tensione applicata ai capi del diodo, $\eta$ è il fattore di idealità e $V_T$ è un parametro dipendente dalla temperatura e che a 300\si{\kelvin} vale circa 25 \si{\milli\volt}. Per valori della corrente troppo grandi, l’andamento I-V non rispetta più l'\autoref{eq:shokley}.\\
+Dall’esame della caratteristica del diodo si evince che in polarizzazione diretta la caduta di tensione ai capi di tale componente varia poco rispetto alla corrente che lo attraversa, quando questa non supera un certo valore; cioè, dopo il tratto iniziale in cui la corrente è praticamente trascurabile, la caratteristica diventa molto ripida. Il valore della tensione per la quale si ha questo fenomeno viene detto tensione di soglia $V_\gamma$ e varia in base al materiale di cui è composto il diodo.\\
+Per quanto riguarda i diodi al Si il valore tipico di $I_0^\text{Si}$ è dell’ordine del \si{\nano\ampere}, mentre il fattore di idealità $\eta^\text{Si}$ è pari a circa 1.8; invece per i diodi al Ge $I_0^\text{Ge}$ è dell’ordine del \si{\micro\ampere}, mentre $\eta^\text{Ge}$ è pari circa a 1.
